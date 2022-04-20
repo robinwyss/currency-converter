@@ -51,7 +51,8 @@
       <version>${spring-security.version}</version>
     </dependency>
   </dependencies>  
-  <build> 
+  <build>
+    <finalName>${artifactId}</finalName>
     <plugins> 
       <plugin> 
         <groupId>org.springframework.boot</groupId>  
@@ -69,34 +70,6 @@
           </execution>
         </executions>
       </plugin>
-      <plugin>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>2.5.0</version>
-        <configuration>
-          <schemaVersion>v2</schemaVersion>
-          <subscriptionId>ab713956-ee96-47f1-b898-04f9b0480bfb</subscriptionId>
-          <resourceGroup>ocean-facts-1647961338518-rg</resourceGroup>
-          <appName>ocean-facts-1647961338518</appName>
-          <pricingTier>D1</pricingTier>
-          <region>centralus</region>
-          <runtime>
-            <os>Windows</os>
-            <javaVersion>Java 11</javaVersion>
-            <webContainer>Java SE</webContainer>
-          </runtime>
-          <deployment>
-            <resources>
-              <resource>
-                <directory>${project.basedir}/target</directory>
-                <includes>
-                  <include>*.jar</include>
-                </includes>
-              </resource>
-            </resources>
-          </deployment>
-        </configuration>
-      </plugin>
-    </plugins> 
+    </plugins>
   </build> 
 </project>
